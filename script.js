@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🎵 CARREGAR MUSICAS GITHUB
   // =========================
 
-  fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/mp")
+  //fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/mp")
+  fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/mp?t=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
 
