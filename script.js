@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .filter(file =>
           file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
         )
-        .map(file => file.download_url);
+        //.map(file => file.download_url);
+      .map(file => file.download_url + `?t=${Date.now()}`);
 
       createGallery();
     });
