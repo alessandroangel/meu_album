@@ -25,13 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
        console.log(data);
 
-     images = data
+   images = data
   .filter(file =>
     file.download_url &&
     file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
   )
-  .map(file => file.download_url + `?t=${Date.now()}`);ap(file => file.download_url + `?t=${Date.now()}`);
-  
+  .map(file => file.download_url + `?t=${Date.now()}`);
+
+console.log(images);
         createGallery();
     });
 
