@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
 let images = [];
@@ -69,7 +67,7 @@ createGallery(); // 👈 ADICIONE ISSO
 // ▶️ iniciar slideshow
 window.startSlideshow = function() {
   const elem = document.documentElement;
-
+  clearInterval(interval);
   playRandomMusic();
 
   if (elem.requestFullscreen) {
