@@ -13,7 +13,7 @@ fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
         file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
       )
       .map(file => file.download_url);
-
+    
     createGallery();
   });
 
@@ -62,7 +62,6 @@ function createGallery() {
     gallery.appendChild(img);
   });
 }
-createGallery(); // 👈 ADICIONE ISSO
 
 // ▶️ iniciar slideshow
 window.startSlideshow = function() {
@@ -122,18 +121,12 @@ window.stopSlideshow = function() {
 // 🎵 música
 window.toggleMusic = function() {
   const music = document.getElementById("music");
-   music.pause();
-   music.currentTime = 0;
-   music.play();
- 
+
   if (music.paused) {
-    music.currentTime = 0;
-    music.play();
+    music.play().catch(err => console.log(err));
   } else {
     music.pause();
   }
-  //music.paused ? music.play() : music.pause();
-    music.play().catch(err => console.log(err));
 };
     
 
