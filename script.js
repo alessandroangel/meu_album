@@ -71,9 +71,7 @@ window.startSlideshow = function() {
   playRandomMusic();
   const elem = document.documentElement;
  
- 
-
-  if (elem.requestFullscreen) {
+   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   }
 
@@ -124,23 +122,20 @@ window.stopSlideshow = function() {
 // 🎵 música
 window.toggleMusic = function() {
   const music = document.getElementById("music");
-  /*music.paused ? music.play() : music.pause();
-};*/
    music.pause();
    music.currentTime = 0;
    music.play();
-  
-   music.play().catch(err => console.log(err));
-  
-    if (music.paused) {
+ 
+  if (music.paused) {
     music.currentTime = 0;
     music.play();
   } else {
     music.pause();
   }
-
+  //music.paused ? music.play() : music.pause();
+    music.play().catch(err => console.log(err));
 };
-
+    
 
 // 🔄 sair do fullscreen
 document.addEventListener("fullscreenchange", () => {
