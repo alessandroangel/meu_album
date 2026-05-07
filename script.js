@@ -23,16 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/img?t=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
-       console.log(data);
+console.log(data);
 
    images = data
-  .filter(file =>
-    file.download_url &&
-    file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
+      .filter(file =>
+        file.download_url &&
+        file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
   )
   .map(file => file.download_url + `?t=${Date.now()}`);
 
 console.log(images);
+      
         createGallery();
     });
 
