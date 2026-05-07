@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/img?t=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
+       console.log(data);
 
       images = data
         console.log(images);
@@ -31,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
         )
         //.map(file => file.download_url);
       .map(file => file.download_url + `?t=${Date.now()}`);
-
+  
+      console.log(images);
       createGallery();
     });
 
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/mp?t=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
+     
 
       musics = data
         .filter(file =>
