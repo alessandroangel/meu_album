@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
   // 📸 imagens
@@ -21,7 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
 
   fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      return res.json();
+    })
     .then(data => {
 
       images = data
@@ -31,6 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .map(file => file.download_url);
 
       createGallery();
+    })
+    .catch(err => {
+      console.error("Erro ao carregar imagens:", err);
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = `<p class=\"error\">Erro ao carregar imagens do GitHub. Atualize a página ou verifique o repositório.</p>`;
     });
 
 
@@ -79,6 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function createGallery() {
 
     const gallery = document.getElementById("gallery");
+
+    if (images.length === 0) {
+      gallery.innerHTML = `<p class="error">Nenhuma imagem encontrada.</p>`;
+      return;
+    }
 
     gallery.innerHTML = "";
 
