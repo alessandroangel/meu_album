@@ -26,12 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
        console.log(data);
 
       images = data
-        console.log(images);
+        //console.log(images);
         .filter(file =>
+          file.download_url &&
           file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
         )
         //.map(file => file.download_url);
-      .map(file => file.download_url + `?t=${Date.now()}`);
+       .map(file => file.download_url + `?t=${Date.now()}`);
   
       console.log(images);
       createGallery();
