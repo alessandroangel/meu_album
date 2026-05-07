@@ -1,2 +1,0 @@
-# meu_album
-fotos
