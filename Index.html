@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum de Fotos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="home">
+  <h1>Alessandro de Deus - Slides com musica</h1>
+  <div class="gallery" id="gallery"></div>
+</div>
+
+<button class="start-btn" onclick="startSlideshow()">Iniciar</button>
+
+<div class="slideshow" id="slideshow">
+  <img id="slideImage" class="blur show" src="">
+
+  <!-- Relógio -->
+  <div class="clock">
+  <span class="n12">12</span>
+  <span class="n3">3</span>
+  <span class="n6">6</span>
+  <span class="n9">9</span>
+
+  <div class="hand hour"></div>
+  <div class="hand minute"></div>
+  <div class="hand second"></div>
+</div>
+
+    <div class="controls">
+    <button onclick="toggleMusic()">Música</button>
+    <button onclick="stopSlideshow()">Sair</button>
+  </div>
+</div>
+
+<audio id="music" loop></audio>
+
+<script src="script.js" defer></script>
+</body>
+</html>
