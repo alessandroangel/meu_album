@@ -68,9 +68,10 @@ createGallery(); // 👈 ADICIONE ISSO
 window.startSlideshow = function() {
   //limpa intervalos da musica
   clearInterval(interval);
+  playRandomMusic();
   const elem = document.documentElement;
  
-  playRandomMusic();
+ 
 
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
