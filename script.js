@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 📸 CARREGAR IMAGENS GITHUB
   // =========================
 
-  fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
+  //fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
+  fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/img?t=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
 
