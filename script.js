@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
 
       images = data
+        console.log(images);
         .filter(file =>
           file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
         )
