@@ -121,8 +121,18 @@ window.stopSlideshow = function() {
 // 🎵 música
 window.toggleMusic = function() {
   const music = document.getElementById("music");
-  music.paused ? music.play() : music.pause();
-};
+  /*music.paused ? music.play() : music.pause();
+};*/
+  music.pause();
+music.currentTime = 0;
+music.play();
+  music.play().catch(err => console.log(err));
+    if (music.paused) {
+    music.currentTime = 0;
+    music.play();
+  } else {
+    music.pause();
+  }
 
 });
 
