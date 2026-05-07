@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // 📸 imagens
@@ -19,22 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // 📸 CARREGAR IMAGENS GITHUB
   // =========================
 
-  //fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
-  fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/img?t=${Date.now()}`)
+  fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/img")
     .then(res => res.json())
     .then(data => {
-console.log(data);
 
-   images = data
-      .filter(file =>
-        file.download_url &&
-        file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
-  )
-  .map(file => file.download_url + `?t=${Date.now()}`);
+      images = data
+        .filter(file =>
+          file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
+        )
+        .map(file => file.download_url);
 
-console.log(images);
-      
-        createGallery();
+      createGallery();
     });
 
 
@@ -43,11 +39,9 @@ console.log(images);
   // 🎵 CARREGAR MUSICAS GITHUB
   // =========================
 
-  //fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/mp")
-  fetch(`https://api.github.com/repos/alessandroangel/meu_album/contents/mp?t=${Date.now()}`)
+  fetch("https://api.github.com/repos/alessandroangel/meu_album/contents/mp")
     .then(res => res.json())
     .then(data => {
-     
 
       musics = data
         .filter(file =>
